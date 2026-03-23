@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I'm Sorry</title>
+    <meta
+      name="description"
+      content="A small interactive apology webpage with a step-by-step message."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@300;400;600;700&family=Dancing+Script:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="bg-blob blob-a"></div>
+    <div class="bg-blob blob-b"></div>
+    <div class="bg-blob blob-c"></div>
+    <div class="floating-heart h1">❤</div>
+    <div class="floating-heart h2">❤</div>
+    <div class="floating-heart h3">❤</div>
+    <div class="floating-heart h4">❤</div>
+
+    <main class="app-shell">
+      <section class="screen is-active" data-step="0" aria-live="polite">
+        <article class="card">
+          <div class="media soft-red">
+            <div class="media-heart left">❤</div>
+            <div class="media-heart right">❤</div>
+            <div class="gif-placeholder">🥺🎀</div>
+          </div>
+          <div class="content">
+            <h1>Hey Darling!</h1>
+            <p>
+              Can you please try to understand what I meant? You already know how much I care about
+              you, and can't even say anything bad about you. I just want to make things right again... Please give me a chance to explain. 🤍
+            </p>
+          </div>
+          <button class="primary-btn" data-next>
+            Continue <span>❤</span>
+          </button>
+        </article>
+      </section>
+
+      <section class="screen" data-step="1" aria-live="polite">
+        <article class="card">
+          <div class="media soft-purple">
+            <div class="media-heart left">❤</div>
+            <div class="media-heart right">❤</div>
+            <div class="gif-placeholder">😭</div>
+          </div>
+          <div class="content">
+            <p>I know I hurt you... and I've been feeling bad about it.  I know I’ve given you a reason to be hurt, and I hate that my actions placed sadness in your heart. Since I can’t change what happened, all I can do is stand before you truthfully and say: I am deeply sorry. </p>
+          </div>
+          <button class="secondary-btn" data-next>
+            Next <span>➜</span>
+          </button>
+        </article>
+      </section>
+
+      <section class="screen" data-step="2" aria-live="polite">
+        <article class="card">
+          <div class="content centered">
+            <h2>Little things I want to tell you...</h2>
+            <p class="muted">Tap each one</p>
+          </div>
+
+          <div class="tap-list">
+            <button class="tap-card peach" data-tap>
+              <span class="cover">❤</span>
+              <span class="tap-text">I want to explain what I said earlier because I realize I made it sound different from what I truly meant. That mistake is on me I never meant to hurt you, confuse you, or make you feel anything negative, and I’m really sorry for that. Please don’t think the misunderstanding happened because of you it happened because I expressed myself badly. I care about you, and I want you to understand that what I meant was something entirely different from how it sounded. I should have chosen my words more carefully and explained myself better, instead of leaving room for the wrong meaning. You understood it that way because I said it badly, not because you did anything wrong. I never wanted to hurt you, upset you, or make you feel confused. Please know that my intention was different, and I feel really bad that my words gave the wrong impression. I take full responsibility for that, and I’ll be more careful with how I express myself. 🥺</span>
+            </button>
+            <button class="tap-card pink" data-tap>
+              <span class="cover">❤</span>
+              <span class="tap-text">I know I hurt you, and I hate that I became the reason for your silence. If I could, I’d gather every misunderstanding, every careless moment, and bury them where they could never touch you again. You deserve a love that feels safe, even when it burns deep and I’m sorry that mine wounded you instead. 😭</span>
+            </button>
+            <button class="tap-card violet" data-tap>
+              <span class="cover">❤</span>
+              <span class="tap-text">You stay in my mind like a beautiful curse, impossible to escape and even harder to deserve. I don’t want to lose you to my mistakes, or my stupidity. If your heart is bruised because of me, then let my apology live there until it softens the ache. 😢</span>
+            </button>
+          </div>
+
+          <button class="primary-btn" data-next>
+            My message <span>➜</span>
+          </button>
+        </article>
+      </section>
+
+      <section class="screen" data-step="3" aria-live="polite">
+        <article class="card">
+          <div class="content centered">
+            <h2>From my heart...</h2>
+          </div>
+
+          <div class="final-pair">
+            <div class="mini-box">🤧</div>
+            <div class="mini-box">💝</div>
+          </div>
+
+          <div class="message-stage">
+            <p class="tap-hint">↓ Tap to see message ↓</p>
+            <button id="revealCard" class="reveal-card" aria-expanded="false">
+              <h3>I'm Sorry, my love. 😭</h3>
+              <p>
+               I know I’ve given you a reason to be hurt, and I hate that my actions placed sadness in your heart. Since I can’t change what happened, all I can do is stand before you truthfully and say: I am deeply sorry. You matter to me more than my pride, more than being right, more than finding excuses. I never want my love to feel like something that wounds you. Even in the darker corners of my heart, where longing becomes heavy and love becomes intense, my feelings for you are still meant to protect you, not hurt you. Please know this apology is not just words written to soften the moment. It comes from a real ache inside me, because the thought of being the reason for your pain is unbearable. You are precious to me in ways I cannot fully explain, and I regret not showing that better. If you can find it in your heart to forgive me, I promise to do better, to listen more, and to love you in a way that makes you feel safe and cherished. You deserve nothing less than the best of me, and I am committed to being that for you.
+              </p>
+            </button>
+          </div>
+        </article>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

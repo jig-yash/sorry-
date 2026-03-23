@@ -1,0 +1,417 @@
+:root {
+  --bg: #efebdf;
+  --card: #f7f1ea;
+  --text: #7c4c58;
+  --text-dark: #6a3f4e;
+  --pink-btn: #ebc9d4;
+  --purple-btn: #dbc9eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+}
+
+body {
+  font-family: "Bricolage Grotesque", sans-serif;
+  color: var(--text);
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+.app-shell {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px 16px;
+  position: relative;
+  z-index: 2;
+}
+
+.bg-blob {
+  position: fixed;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(12px);
+  z-index: 0;
+}
+
+.blob-a {
+  top: -120px;
+  right: -180px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle at center, #f8efce 0%, #f8efce 40%, transparent 70%);
+}
+
+.blob-b {
+  top: 24%;
+  left: -210px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle at center, #f6cec5 0%, #f6cec5 40%, transparent 72%);
+}
+
+.blob-c {
+  bottom: -160px;
+  right: -210px;
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle at center, #d6d3de 0%, #d6d3de 40%, transparent 70%);
+}
+
+.floating-heart {
+  position: fixed;
+  opacity: 0.45;
+  z-index: 1;
+  pointer-events: none;
+  animation: float 5s ease-in-out infinite;
+}
+
+.h1 {
+  top: 8%;
+  right: 16%;
+  color: #d9b3ff;
+  font-size: 38px;
+}
+
+.h2 {
+  top: 33%;
+  left: 16%;
+  color: #fda5d5;
+  font-size: 28px;
+  animation-delay: 0.8s;
+}
+
+.h3 {
+  bottom: 18%;
+  right: 26%;
+  color: #ffa3a3;
+  font-size: 32px;
+  animation-delay: 1.1s;
+}
+
+.h4 {
+  bottom: 8%;
+  right: 3%;
+  color: #ffa3a3;
+  font-size: 48px;
+  animation-delay: 0.5s;
+}
+
+.screen {
+  width: 100%;
+  max-width: 420px;
+  opacity: 0;
+  transform: scale(0.95);
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
+.screen.is-active {
+  opacity: 1;
+  transform: scale(1);
+  pointer-events: auto;
+  position: relative;
+}
+
+.card {
+  width: 100%;
+  border-radius: 36px;
+  padding: 24px;
+  background: var(--card);
+  box-shadow:
+    inset -2px -3px 15px rgba(77, 75, 75, 0.3),
+    3px 3px 30px rgba(191, 180, 178, 0.29),
+    5px 5px 5px rgba(43, 42, 42, 0.29),
+    inset -2px -3px 4px rgba(53, 52, 52, 0.21),
+    inset -10px -10px 15px rgba(63, 60, 60, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.media {
+  position: relative;
+  min-height: 180px;
+  border-radius: 28px;
+  display: grid;
+  place-items: end center;
+  overflow: hidden;
+  box-shadow:
+    inset 3px 2px 8px rgba(39, 38, 38, 0.3),
+    -2px -2px 8px rgba(22, 22, 22, 0.46);
+}
+
+.soft-red {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), #ffccd3);
+}
+
+.soft-purple {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), #e9d5ff);
+}
+
+.media-heart {
+  position: absolute;
+  font-size: 28px;
+  opacity: 0.55;
+}
+
+.media-heart.left {
+  top: 18%;
+  left: 24%;
+  transform: rotate(-14deg);
+}
+
+.media-heart.right {
+  top: 18%;
+  right: 24%;
+  transform: rotate(14deg);
+}
+
+.gif-placeholder {
+  font-size: 64px;
+  margin-bottom: 12px;
+  filter: drop-shadow(0 9px 7px rgba(0, 0, 0, 0.12));
+}
+
+.content h1,
+.content h2,
+.content h3 {
+  margin: 0;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.content h1,
+.content h2,
+.reveal-card h3 {
+  font-family: "Dancing Script", cursive;
+  font-weight: 700;
+}
+
+.content h1 {
+  font-size: clamp(2rem, 6vw, 3rem);
+}
+
+.content h2 {
+  font-size: clamp(1.9rem, 5.5vw, 2.6rem);
+}
+
+.content p {
+  margin: 0;
+  text-align: center;
+  line-height: 1.5;
+}
+
+.content.centered {
+  text-align: center;
+}
+
+.muted {
+  opacity: 0.7;
+  font-size: 0.95rem;
+}
+
+.primary-btn,
+.secondary-btn {
+  border: none;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-dark);
+  cursor: pointer;
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  transition: transform 180ms ease;
+  box-shadow:
+    inset -2px -2px 10px rgba(0, 0, 0, 0.2),
+    inset -2px -4px 20px rgba(75, 75, 75, 0.2),
+    2px 2px 10px rgba(0, 0, 0, 0.21);
+}
+
+.primary-btn {
+  background: var(--pink-btn);
+}
+
+.secondary-btn {
+  background: var(--purple-btn);
+}
+
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: scale(1.04);
+}
+
+.primary-btn:active,
+.secondary-btn:active {
+  transform: scale(0.97);
+}
+
+.tap-list {
+  display: grid;
+  gap: 12px;
+}
+
+.tap-card {
+  position: relative;
+  border: none;
+  border-radius: 24px;
+  min-height: 88px;
+  overflow: hidden;
+  cursor: pointer;
+  text-align: center;
+  padding: 16px;
+}
+
+.tap-card .tap-text {
+  position: relative;
+  z-index: 1;
+  color: var(--text);
+  line-height: 1.35;
+}
+
+.tap-card .cover {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 2rem;
+  z-index: 2;
+  transition: transform 600ms ease;
+}
+
+.tap-card.peach {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), #ffd5c7);
+}
+
+.tap-card.peach .cover {
+  background: linear-gradient(to bottom, #ffe1d8, #ffc4b0);
+}
+
+.tap-card.pink {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), #f7cbe2);
+}
+
+.tap-card.pink .cover {
+  background: linear-gradient(to bottom, #fbd9ec, #f7b7d9);
+}
+
+.tap-card.violet {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.85), #e9d8fb);
+}
+
+.tap-card.violet .cover {
+  background: linear-gradient(to bottom, #f0e4ff, #d6b7ff);
+}
+
+.tap-card.is-open .cover {
+  transform: translateX(-105%);
+}
+
+.final-pair {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.mini-box {
+  min-height: 120px;
+  border-radius: 24px;
+  display: grid;
+  place-items: center;
+  font-size: 3rem;
+  box-shadow:
+    inset 3px 2px 8px rgba(39, 38, 38, 0.3),
+    -2px -2px 8px rgba(22, 22, 22, 0.46);
+}
+
+.mini-box:first-child {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), #e7d7fb);
+}
+
+.mini-box:last-child {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), #ffdde6);
+}
+
+.message-stage {
+  position: relative;
+  min-height: 220px;
+  border-radius: 30px;
+  overflow: hidden;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), #ffccd3);
+  box-shadow:
+    inset 3px 2px 8px rgba(39, 38, 38, 0.3),
+    -2px -2px 8px rgba(22, 22, 22, 0.46);
+}
+
+.tap-hint {
+  margin: 18px 0 0;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.reveal-card {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  background: #fff1f2;
+  border-radius: 30px;
+  padding: 18px 20px 28px;
+  min-height: 0;
+  max-height: 0;
+  overflow-x: scroll;
+  text-align: center;
+  transition: max-height 700ms ease;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.reveal-card h3 {
+  font-size: clamp(2.4rem, 8vw, 3.5rem);
+  color: var(--text-dark);
+  margin: 2px 0 12px;
+}
+
+.reveal-card p {
+  margin: 0;
+  line-height: 1.45;
+  font-size: 1rem;
+}
+
+.reveal-card.is-open {
+  max-height: 240px;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+@media (max-width: 520px) {
+  .card {
+    border-radius: 32px;
+    padding: 18px;
+  }
+
+  .message-stage {
+    min-height: 210px;
+  }
+}
